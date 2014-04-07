@@ -1,4 +1,4 @@
-SSH = 'ssh -A master@192.168.10.21'
+SSH = 'ssh -A -i /root/master.pem -l master'
 desc "Run Puppet on ENV['CLIENT']"
 task :apply do
 client = ENV['CLIENT']
