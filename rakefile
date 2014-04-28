@@ -1,5 +1,0 @@
-desc "Run Puppet on localhost"
-task :apply do
-sh "git push"
-sh "pull-updates"
-end
