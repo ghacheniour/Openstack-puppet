@@ -5,5 +5,7 @@ class rabbit::rabbitmq {
     require => Package['rabbitmq-server'],
     enable => true,
   }
-  change-password { 'change-rabbit-password': }
+  change-password { 'change-rabbit-password':
+    require => Package['rabbitmq-server'],
+   }
 }
