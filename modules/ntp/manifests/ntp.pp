@@ -4,7 +4,8 @@ class ntp::ntp {
   }
 
   service { 'ntp':
-    ensure => running,
+    ensure  => running,
+    enable  => true,
     require => Package['ntp'],
   }
 }
