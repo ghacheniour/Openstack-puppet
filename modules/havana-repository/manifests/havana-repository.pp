@@ -17,6 +17,7 @@ class havana-repository::havana-repository {
   exec { 'ubuntu-update':
     command => '/usr/bin/apt-get update && /usr/bin/apt-get -y dist-upgrade',
     require => Exec['add-havna-repository'],
+    timeout => 0,
   }
     
   notify { " $::operatingsystem successfully upgraded": }
