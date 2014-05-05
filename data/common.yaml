@@ -1,19 +1,60 @@
-ipaddress : '192.168.80.135'
-password  : 'openstackdb'
-database  :
-   "cinder":  
-             user     : "cinder"
-             password : "openstack"
-   "keystone": 
-             user     : "cinder"
-             password : "openstack"
-   "nova":
-             user     : "nova"
-             password : "openstack"
-   "glance":
-             user     : "glance"
-             password : "openstack"
-   "neutron":
-             user     : "neutron"
-             password : "openstack"
-rabbitpass : 'RABBIT_PASS'
+ipaddress   : '192.168.80.135'
+password    : 'openstackdb'
+rabbitpass  : 'RABBIT_PASS'
+admin_token : 'admin'
+hostname    : 'master'
+database    :
+ "cinder" :  
+       user     : "cinder"
+       password : "openstack"
+ "keystone" : 
+       user     : "keystone"
+       password : "openstack"
+ "nova"     :
+      user     : "nova"
+      password : "openstack"
+ "glance":
+      user     : "glance"
+      password : "openstack"
+ "neutron"  :
+      user     : "neutron"
+      password : "openstack"
+
+users       :
+  "keystone" :
+         user     : "admin"
+         password : "admin"
+         email    : "admin@openstack.com"
+  "glance"  : 
+        user     : "glance"
+        password : "glance"
+        email    : "glance@openstack.com"
+  "cinder"  :
+        user     : "cinder"
+        password : "cinder"
+        email    : "cinder@openstack.com"
+  "nova"    : 
+        user     : "nova"
+        password : "nova"
+        email    : "nova@openstack.com"
+  "neutron"  :
+        user     : "neutron"
+        password : "neutron"
+        email    : "neutron@openstack.com"
+services :
+   "keystone":
+      type        : "identity"
+      description : "Keystone Identity Service"
+   "glance"  :
+      type        : "image"
+      description : "Glance Image Service"
+   "nova"    :  
+      type        : "compute"
+      description : "Nova Compute service"
+   "cinder"  :
+      type        : "volume"
+      description : "Cinder Volume Service"
+   "neutron" :     
+      type        : "network"
+      description : "OpenStack Networking Service"
+
