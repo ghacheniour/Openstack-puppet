@@ -1,4 +1,5 @@
 class keystone::install::install {
+require mysql::mysql-create-db
   $admin_token = hiera('admin_token')
   package { [ 'keystone' ]: 
     ensure => installed,
