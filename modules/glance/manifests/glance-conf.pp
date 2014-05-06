@@ -17,9 +17,9 @@ augeas { 'update-glance-api':
               "set keystone_authtoken/admin_user $keystone_user",
               "set keystone_authtoken/admin_password $keystone_password",
               'set paste_deploy/#comment[7] "flavor = keystone"'],             
-  notify => Sed['update-glance-api-flavor'],
+  notify => Sed-command['update-glance-api-flavor'],
   }
-sed { 'update-glance-api-flavor':
+sed-command { 'update-glance-api-flavor':
   attribute => "#flavor = keystone",
   new_attribute => "flavor = keystone",
   path => '/etc/glance/glance-api.conf',  
@@ -34,9 +34,9 @@ augeas { 'update-glance-registery':
               "set keystone_authtoken/admin_user $keystone_user",
               "set keystone_authtoken/admin_password $keystone_password",
               'set paste_deploy/#comment[7] "flavor = keystone"'],
-  notify => Sed['update-glance-registry-flavor'],
+  notify => Sed-command['update-glance-registry-flavor'],
   }
-sed { 'update-glance-registry-flavor':
+sed-command { 'update-glance-registry-flavor':
   attribute => "#flavor = keystone",
   new_attribute => "flavor = keystone",
   path => '/etc/glance/glance-registry.conf',

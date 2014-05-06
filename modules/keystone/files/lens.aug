@@ -43,6 +43,7 @@ let record  = IniFile.record title entry
 let lns     = IniFile.lns record comment
 
 let filter = ((incl "/etc/glance/*.ini")
+             . (incl "/etc/glance/*.conf")
              . (incl "/etc/keystone/keystone.conf")
              . (incl "/etc/nova/api-paste.ini")
              . (incl "/etc/swift/swift.conf")
