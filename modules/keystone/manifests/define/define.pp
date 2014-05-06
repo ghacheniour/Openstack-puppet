@@ -1,4 +1,5 @@
 class keystone::define::define {  
+require keystone::install::install
   $admin_token = hiera('admin_token')
   $group = ["keystone", "glance", "cinder", "nova", "neutron"]
   $hostname = hiera('hostname')
