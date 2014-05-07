@@ -3,6 +3,7 @@ password    : 'openstackdb'
 rabbitpass  : 'RABBIT_PASS'
 admin_token : 'admin'
 hostname    : 'master'
+metadatapass : 'openstack'
 database    :
  "cinder" :  
        user     : "cinder"
