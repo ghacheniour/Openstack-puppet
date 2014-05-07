@@ -8,9 +8,15 @@ node 'master' {
 #class { 'keystone::define::define': }
 #class { 'keystone::service-endpoint::service-endpoint': }
 #class { 'glance::glance-sync': }
-#class { 'nova::nova-install': }
-#class { 'nova::nova-conf': }
-class { 'nova::nova-sync': }
+class { 'nova::controller::nova-sync': }
+
+
+
+}
+node 'agent' {
+include puppet 
+class { 'ntp::ntp': }
+class { 'havana-repository::havana-repository': }
 
 
 
