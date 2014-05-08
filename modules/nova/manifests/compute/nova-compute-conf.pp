@@ -17,9 +17,9 @@ $neutron_url = "http://$hostname:9696"
 $neutron_admin_url = "http://$hostname:5000/v2.0"
 $metadata_pass = hiera('metadatapass')
 
-#statoverride { 'execute-statoverride': 
-#  notify => File['/etc/kernel/postinst.d/statoverride'],
-#}
+statoverride { 'execute-statoverride': 
+  notify => File['/etc/kernel/postinst.d/statoverride'],
+}
 
 file { '/etc/kernel/postinst.d/statoverride':
   ensure => present,
