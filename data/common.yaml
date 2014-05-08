@@ -59,4 +59,7 @@ services :
    "neutron" :     
       type        : "network"
       description : "OpenStack Networking Service"
-
+   "cinderv2" :
+      type        : "volumev2"
+      description : "Cinder Volume Service V2"
+ 
