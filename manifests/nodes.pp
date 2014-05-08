@@ -8,7 +8,9 @@ node 'master' {
 #class { 'keystone::define::define': }
 #class { 'keystone::service-endpoint::service-endpoint': }
 #class { 'glance::glance-sync': }
-class { 'nova::controller::nova-sync': }
+#class { 'nova::controller::nova-sync': }
+class { 'dashboard::dashboard-install': }
+class { 'cinder::cinder-install': }
 
 
 
