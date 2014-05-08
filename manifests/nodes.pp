@@ -15,9 +15,9 @@ class { 'nova::controller::nova-sync': }
 }
 node 'agent' {
 include puppet 
-class { 'ntp::ntp': }
-class { 'havana-repository::havana-repository': }
-
+#class { 'ntp::ntp': }
+#class { 'havana-repository::havana-repository': }
+#class { 'nova::compute::nova-compute-conf': }
 
 
 }
