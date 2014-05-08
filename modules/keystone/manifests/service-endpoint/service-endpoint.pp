@@ -8,7 +8,8 @@ $admin_token = hiera('admin_token')
   $url_nova =  "http://$hostname:8774/v2/%\(tenant_id\)s "
   $url_cinder = "http://$hostname:8776/v1/%\(tenant_id\)s"
   $url_neutron =  "http://$hostname:9696/"
-  create-service { ['keystone','glance','cinder','nova','neutron']:
+  $url_cinderv2 = "http://$hostname:8776/v2/%\(tenant_id\)s"
+  create-service { ['keystone','glance','cinder','nova','neutron','cinderv2']:
     admin_token => $admin_token,
     url => $url,
   }  
@@ -41,6 +42,12 @@ $admin_token = hiera('admin_token')
     url         => $url,
     var         => $url_neutron,
     require     => Create-service['neutron'],
+  }
+  create-endpoint { 'cinderv2':
+    admin_token => $admin_token,
+    url         => $url,
+    var         => $url_cinderv2,
+    require     => Create-service['cinderv2'],
   }
 
 }
