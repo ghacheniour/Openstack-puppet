@@ -1,5 +1,5 @@
 ipaddress   : '192.168.80.135'
-compute_ipaddress   : '192.168.80.134'
+compute_ipaddress   : '192.168.80.139'
 password    : 'openstackdb'
 rabbitpass  : 'RABBIT_PASS'
 admin_token : 'admin'
