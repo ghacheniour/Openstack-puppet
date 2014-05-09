@@ -1,4 +1,5 @@
 class cinder::storage {
+  require cinder::cinder-install
   package { 'lvm2':
     ensure => installed,
     notify => Attach-volume['attach-volume'],
