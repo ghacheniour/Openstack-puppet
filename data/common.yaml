@@ -5,6 +5,7 @@ rabbitpass  : 'RABBIT_PASS'
 admin_token : 'admin'
 hostname    : 'master'
 metadatapass : 'openstack'
+path_to_cinder_volume : '/dev/sdb'
 database    :
  "cinder" :  
        user     : "cinder"
