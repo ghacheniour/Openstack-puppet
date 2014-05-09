@@ -9,7 +9,7 @@ node 'master' {
 #class { 'keystone::service-endpoint::service-endpoint': }
 #class { 'glance::glance-sync': }
 #class { 'nova::controller::nova-sync': }
-#class { 'dashboard::dashboard-install': }
+class { 'dashboard::dashboard-install': }
 #class { 'cinder::cinder-install': }
 class { 'cinder::storage': }
 
