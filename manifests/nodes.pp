@@ -9,11 +9,15 @@ node 'master' {
 #class { 'keystone::service-endpoint::service-endpoint': }
 #class { 'glance::glance-sync': }
 #class { 'nova::controller::nova-sync': }
-class { 'dashboard::dashboard-install': }
+#class { 'dashboard::dashboard-install': }
 #class { 'cinder::cinder-install': }
-class { 'cinder::storage': }
-
-
+#class { 'cinder::storage': }
+#class { 'neutron::controller::neutron-install': }
+#class { 'neutron::controller::neutron-conf': }
+#class { 'neutron::controller::neutron-api': }
+#class { 'neutron::controller::neutron-ml2': }
+#class { 'neutron::controller::neutron-agent': }
+class { 'neutron::controller::ovs': }
 
 }
 node 'agent' {
