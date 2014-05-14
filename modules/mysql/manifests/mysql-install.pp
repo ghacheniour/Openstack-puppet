@@ -1,5 +1,5 @@
 class mysql::mysql-install( ){ 
-  require havana-repository::havana-repository
+#  require havana-repository::havana-repository
   $pass = hiera('password')
   $ipaddress = hiera('ipaddress')
   package { [ 'python-mysqldb',
