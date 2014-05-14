@@ -12,7 +12,7 @@ $rabbit_pass = hiera('rabbitpass')
 $ipaddress = hiera('ipaddress')
 $neutron_user = $users['neutron'][user]
 $neutron_password = $users['neutron'][password]
-$neutron_url = "http://$hostname:9696"
+$neutron_url = "http://$hostname:9696/"
 $neutron_admin_url = "http://$hostname:5000/v2.0"
 $metadata_pass = hiera('metadatapass')
 augeas { 'update-nova-conf-file':
