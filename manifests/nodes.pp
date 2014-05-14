@@ -6,6 +6,7 @@ node 'master' {
 #  class { 'rabbit::rabbitmq': }
 #  class { 'keystone::install::install': }
 #class { 'keystone::define::define': }
+#class { 'keystone::service-endpoint::service': }
 #class { 'keystone::service-endpoint::service-endpoint': }
 #class { 'glance::glance-sync': }
 #class { 'nova::controller::nova-sync': }
@@ -16,8 +17,8 @@ node 'master' {
 #class { 'neutron::controller::neutron-conf': }
 #class { 'neutron::controller::neutron-api': }
 #class { 'neutron::controller::neutron-ml2': }
-#class { 'neutron::controller::neutron-agent': }
-class { 'neutron::controller::ovs': }
+class { 'neutron::controller::neutron-agent': }
+#class { 'neutron::controller::ovs': }
 
 }
 node 'agent' {
