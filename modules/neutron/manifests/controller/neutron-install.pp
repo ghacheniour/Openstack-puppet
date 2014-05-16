@@ -7,5 +7,12 @@ package { ['neutron-server',
            'openvswitch-switch',
            'openvswitch-datapath-dkms']:
   ensure => installed, 
+  notify => Package['stevedore'],
 }
+
+package { 'stevedore':
+  ensure => latest,
+  provider => pip,
+}
+
 }
