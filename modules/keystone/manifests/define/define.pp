@@ -26,7 +26,7 @@ require keystone::install::install
     require => Creditionals['create-source-file'],
   }
 
-  user-create { ['keystone', 'glance', 'cinder', 'nova', 'neutron']:
+  user-create { ['keystone', 'glance', 'cinder', 'nova', 'neutron','swift','heat']:
     admin_token => $admin_token,
     url => $url,
     require => Creditionals['create-source-file'],
@@ -66,5 +66,18 @@ require keystone::install::install
     role => "admin",
     require => [User-create['neutron'], Role-create['create-role-admin'], Tenant-create['create-tenant-service']],
   }
-
+ usr-role-add { 'swift':
+    admin_token => $admin_token,
+    url => $url,
+    tenant => "service",
+    role => "admin",
+    require => [User-create['swift'], Role-create['create-role-admin'], Tenant-create['create-tenant-service']],
+  }
+ usr-role-add { 'heat':
+    admin_token => $admin_token,
+    url => $url,
+    tenant => "service",
+    role => "admin",
+    require => [User-create['heat'], Role-create['create-role-admin'], Tenant-create['create-tenant-service']],
+  }
 }
