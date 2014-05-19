@@ -23,6 +23,9 @@ database    :
  "neutron"  :
       user     : "neutron"
       password : "openstack"
+ "heat"     :
+      user     : "heat"
+      password : "openstack"
 
 users       :
   "keystone" :
@@ -45,6 +48,15 @@ users       :
         user     : "neutron"
         password : "neutron"
         email    : "neutron@openstack.com"
+  "heat"     :
+        user     : "heat"
+        password : "heat"
+        email    : "heat@opanstack.com"
+  "swift"     :
+        user     : "swift"
+        password : "swift"
+        email    : "swift@opanstack.com"
+
 services :
    "keystone":
       type        : "identity"
@@ -64,4 +76,12 @@ services :
    "cinderv2" :
       type        : "volumev2"
       description : "Cinder Volume Service V2"
- 
+   "swift" :
+      type        : "object-store"
+      description : "Object Storage Service"
+   "heat" :
+      type        : "orchestration"
+      description : "Heat Orchestration API"
+   "heat-cfn" :
+      type        : "cloudformation"
+      description : "Heat CloudFormation API"
