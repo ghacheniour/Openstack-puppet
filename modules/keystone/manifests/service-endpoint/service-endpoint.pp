@@ -9,6 +9,10 @@ $admin_token = hiera('admin_token')
   $url_cinder = "http://$hostname:8776/v1/%\(tenant_id\)s"
   $url_neutron =  "http://$hostname:9696/"
   $url_cinderv2 = "http://$hostname:8776/v2/%\(tenant_id\)s"
+  $url_swift  = "http://$hostname:8080/v1/AUTH_%(tenant_id)s"
+  $url_swift_admin = "http://$hostname:8080"
+  $url_heat  = "http://$hostname:8004/v1/%\(tenant_id\)s"
+  $url_heat_cfn = "http://$hostname:8000/v1"
   create-endpoint { 'keystone':
     admin_token => $admin_token, 
     url         => $url,
@@ -39,5 +43,20 @@ $admin_token = hiera('admin_token')
     url         => $url,
     var         => $url_cinderv2,
   }
-
+  create-endpoint-swift { 'swift':
+    admin_token => $admin_token,
+    url         => $url,
+    var         => $url_swift,
+    var2        => $url_swift_admin,
+  }
+  create-endpoint { 'heat':
+    admin_token => $admin_token,
+    url         => $url,
+    var         => $url_heat,
+  }
+  create-endpoint { 'heat-cfn':
+    admin_token => $admin_token,
+    url         => $url,
+    var         => $url_heat_cfn,
+  }
 }
