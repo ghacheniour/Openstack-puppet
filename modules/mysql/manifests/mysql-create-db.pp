@@ -5,4 +5,5 @@ create-db { 'neutron': }
 create-db { 'glance': }
 create-db { 'keystone': }
 create-db { 'nova': }
+create-db { 'heat': }
 }
