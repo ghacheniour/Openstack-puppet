@@ -17,8 +17,11 @@ node 'master' {
 #class { 'neutron::controller::neutron-conf': }
 #class { 'neutron::controller::neutron-api': }
 #class { 'neutron::controller::neutron-ml2': }
-class { 'neutron::controller::neutron-agent': }
+#class { 'neutron::controller::neutron-agent': }
 #class { 'neutron::controller::ovs': }
+#class { 'swift::swift-install': }
+#class { 'swift::storage-node::install-swift-package': }
+class { 'swift::storage-node::disk-partition': }
 
 }
 node 'agent' {
