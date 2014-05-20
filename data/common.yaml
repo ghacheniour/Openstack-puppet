@@ -1,6 +1,7 @@
 ipaddress   : '192.168.80.135'
 compute_ipaddress   : '192.168.80.139'
 storrage_ip_address : '192.168.80.135'
+swift_proxy_ip_address : '192.168.80.135'
 swift_hash  : 'df782a55aa9de1d9'
 password    : 'openstackdb'
 rabbitpass  : 'guest'
