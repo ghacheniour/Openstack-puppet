@@ -21,7 +21,8 @@ node 'master' {
 #class { 'neutron::controller::ovs': }
 #class { 'swift::swift-install': }
 #class { 'swift::storage-node::install-swift-package': }
-class { 'swift::storage-node::disk-partition': }
+#class { 'swift::storage-node::disk-partition': }
+class { 'swift::storage-node::storage-node-conf': }
 
 }
 node 'agent' {
