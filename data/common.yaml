@@ -11,8 +11,6 @@ metadatapass : 'openstack'
 path_to_cinder_volume : '/dev/sdb'  
 swift_drivers :
   - "sdc"
-  - "sde"
-  - "sdd"
 database    :
  "cinder" :  
        user     : "cinder"
