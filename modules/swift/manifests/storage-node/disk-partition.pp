@@ -10,8 +10,6 @@ file { '/srv/node/':
   owner => 'swift',
   group => 'swift',
 }
-create-node { "$drivers": }
-
 create-disk-partition { $drivers: 
   } ->
 xfs { $drivers: 
