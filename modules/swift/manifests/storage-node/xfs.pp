@@ -8,6 +8,9 @@ exec { "echo-$path":
 }->
 file { "/srv/node/$path":
   ensure => directory,
+  recurse => true,
+  owner => 'swift',
+  group => 'swift',
 }->
 exec { "mount-$name":
   command => "/bin/mount /srv/node/$path",
