@@ -1,4 +1,5 @@
-class keystone::define::define {  
+# this class defines users and roles
+class keystone::define::define {
 require keystone::install::install
   $admin_token = hiera('admin_token')
   $group = ["keystone", "glance", "cinder", "nova", "neutron"]
@@ -6,7 +7,7 @@ require keystone::install::install
   $url = "http://${hostname}:35357/v2.0"
   creditionals { 'create-source-file': }
   tenant-create { 'create-tenant-admin':
-    admin_token => $admin_token, 
+    admin_token => $admin_token,
     url => $url,
     tenant_name => "admin",
     desc => "tenant admin",
@@ -48,8 +49,8 @@ require keystone::install::install
   usr-role-add { 'nova':
     admin_token => $admin_token,
     url => $url,
-    tenant => "service" ,
-    role => "admin" ,
+    tenant => "service",
+    role => "admin",
     require => [User-create['nova'], Role-create['create-role-admin'], Tenant-create['create-tenant-service']],
   }
   usr-role-add { 'cinder':
