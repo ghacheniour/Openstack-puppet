@@ -1,4 +1,5 @@
 class swift::proxy-node::swift-proxy-conf {
+  require swift::proxy-node::install-proxy-package
   $users = hiera_hash('users')
   $swift_user = $users['swift'][user]
   $swift_pass = $users['swift'][password]
