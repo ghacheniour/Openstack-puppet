@@ -1,4 +1,5 @@
 class swift::storage-node::storage-node-conf {
+require swift::storage-node::disk-partition
 $storrage_ip_address = hiera('storrage_ip_address')
 file { '/etc/rsyncd.conf':
   ensure => present,
