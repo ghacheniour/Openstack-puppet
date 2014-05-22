@@ -1,3 +1,4 @@
+# this file ensure authentification
 define creditionals {
   $admin_token = hiera('admin_token')
   $hostname = hiera('hostname')
