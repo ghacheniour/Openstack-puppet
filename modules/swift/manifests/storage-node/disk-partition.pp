@@ -1,4 +1,5 @@
 class swift::storage-node::disk-partition {
+require swift::storage-node::install-swift-package
 $drivers = hiera_array('swift_drivers')
 file { '/srv':
   ensure => directory,
