@@ -1,17 +1,16 @@
 class swift::proxy-node::swift-ring-builder {
+require swift::proxy-node::swift-proxy-conf
 $swift_drivers= hiera_array('swift_drivers')
 swift-ring-builder-create { ['account', 'container', 'object']: }->
 swift-ring-account-builder-add { $swift_drivers: }->
 swift-ring-container-builder-add { $swift_drivers: }->
 swift-ring-object-builder-add { $swift_drivers: }->
 swift-ring-builder-rebalance { ['account', 'container', 'object']: 
-  notify => File['/etc/swift'],
+  notify => Exec['define-owners-for-swift-conf'],
 }
 
-file { '/etc/swift':
-  owner => 'swift',
-  group => 'swift',
-  recurse => true,
+exec { 'define-owners-for-swift-conf':
+  command => "/bin/chown -R swift:swift /etc/swift",
   notify => File['/home'],
 }
 file { '/home':
