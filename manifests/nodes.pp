@@ -19,14 +19,9 @@ node 'master' {
 #class { 'neutron::controller::neutron-ml2': }
 #class { 'neutron::controller::neutron-agent': }
 #class { 'neutron::controller::ovs': }
-#class { 'swift::swift-install': }
-#class { 'swift::storage-node::install-swift-package': }
-#class { 'swift::storage-node::disk-partition': }
-#class { 'swift::storage-node::storage-node-conf': }
-#class { 'swift::proxy-node::install-proxy-package': }
-#class { 'swift::proxy-node::swift-proxy-conf': }
+class { 'swift::swift-install': }->
+class { 'swift::storage-node::storage-node-conf': }->
 class { 'swift::proxy-node::swift-ring-builder': }
-
 }
 node 'agent' {
 include puppet 
