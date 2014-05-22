@@ -1,3 +1,4 @@
+# this define create users
 define user-create ($admin_token, $url) {
   $users = hiera_hash ('users')
   $user = $users[$name][user]
