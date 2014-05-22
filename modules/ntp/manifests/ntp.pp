@@ -1,5 +1,6 @@
+# this class install ntp server and start the service
 class ntp::ntp {
-  package { 'ntp':  
+  package { 'ntp':
     ensure => installed,
   }
 
@@ -9,4 +10,3 @@ class ntp::ntp {
     require => Package['ntp'],
   }
 }
-  
