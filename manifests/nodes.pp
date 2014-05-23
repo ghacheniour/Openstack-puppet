@@ -23,13 +23,19 @@ node 'master' {
 #class { 'swift::storage-node::storage-node-conf': }->
 #class { 'swift::proxy-node::swift-ring-builder': }
 #class { 'heat::install-heat-packages': }
-class { 'heat::heat-conf': }
+#class { 'heat::heat-conf': }
 }
 node 'agent' {
 include puppet 
 #class { 'ntp::ntp': }
 #class { 'havana-repository::havana-repository': }
 #class { 'nova::compute::nova-compute-conf': }
+#class { 'neutron::compute::neutron-compute-install': }
+#class { 'neutron::compute::compute-sysctl': }
+#class { 'neutron::compute::neutron-compute-conf': }
+#class { 'neutron::compute::neutron-compute-api': }
+#class { 'neutron::compute::neutron-compute-ml2': }
+class { 'neutron::compute::neutron-compute-ovs': }
 
 
 }
