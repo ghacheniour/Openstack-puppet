@@ -52,10 +52,10 @@ augeas { 'update-rabbit-host-pass-attribute':
   context => '/files/etc/heat/heat.conf/DEFAULT',
   changes => ["set rabbit_host $hostname",
               "set rabbit_password $rabbit_pass"],
-  notify => Augeas['update-keystone_auth-section'],
+  notify => Augeas['update-api-paste'],
 }
-augeas { 'update-keystone_auth-section':
-  context => '/files/etc/heat/heat.conf/keystone_authtoken/',
+augeas { 'update-api-paste':
+  context => '/files/etc/heat/api-paste.ini/filter:authtoken',
   changes => ["set auth_host $hostname",
               "set auth_port 35357",
               "set auth_protocol http",
@@ -63,15 +63,16 @@ augeas { 'update-keystone_auth-section':
               "set admin_tenant_name 'service'",
               "set admin_user $user",
               "set admin_password $pass"],
+  notify => Augeas['update-api-paste-ec2'],
+  
 }
-sed-heat { 'update-auth-uri':
-  attribute => "#auth_uri",
-  new_attribute => "auth_uri",
-  notify => Augeas['updateec2authtoken']
-}
-augeas { 'updateec2authtoken':
-  context => '/files/etc/heat/heat.conf/ec2authtoken',
+augeas { 'update-api-paste-ec2':
+  context => '/files/etc/heat/api-paste.ini/filter:ec2authtoken',
   changes => ["set auth_uri $auth_url",
               "set keystone_ec2_uri $ec2_url"],
+  notify => Service['heat-api', 'heat-api-cfn', 'heat-engine'],
+}
+service { ['heat-api', 'heat-api-cfn', 'heat-engine']:
+  ensure => running,
 }
 }
