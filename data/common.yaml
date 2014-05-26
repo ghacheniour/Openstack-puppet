@@ -8,9 +8,7 @@ rabbitpass  : 'guest'
 admin_token : 'admin'
 hostname    : 'master'
 metadatapass : 'openstack'
-cinder_drivers : 
-  - "sdb"
-  - "sdc"
+cinder_drivers : "/dev/sdb /dev/sdc"
 swift_drivers :
   - "sdd"
   - "sde"
