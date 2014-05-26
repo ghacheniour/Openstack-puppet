@@ -1,5 +1,5 @@
 class keystone::service-endpoint::service-endpoint {
-require keystone::service-endpoint::service
+#require keystone::service-endpoint::service
 $admin_token = hiera('admin_token')
   $hostname = hiera('hostname')
   $url = "http://${hostname}:35357/v2.0"
@@ -9,7 +9,7 @@ $admin_token = hiera('admin_token')
   $url_cinder = "http://$hostname:8776/v1/%\(tenant_id\)s"
   $url_neutron =  "http://$hostname:9696/"
   $url_cinderv2 = "http://$hostname:8776/v2/%\(tenant_id\)s"
-  $url_swift  = "http://$hostname:8080/v1/AUTH_%(tenant_id)s"
+  $url_swift  = "http://$hostname:8080/v1/AUTH_%\(tenant_id\)s"
   $url_swift_admin = "http://$hostname:8080"
   $url_heat  = "http://$hostname:8004/v1/%\(tenant_id\)s"
   $url_heat_cfn = "http://$hostname:8000/v1"
