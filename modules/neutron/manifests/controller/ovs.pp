@@ -8,7 +8,7 @@ exec { 'add-br-int':
   notify  => Exec['add-port'],
 }
 exec { 'add-port':
-  command => "/usr/bin/ovs-vsctl add-port br-ex eth1",
+  command => "/usr/bin/ovs-vsctl add-port br-ex eth2",
   notify => Service['neutron-server',
            'neutron-plugin-openvswitch-agent',
            'neutron-dhcp-agent',
