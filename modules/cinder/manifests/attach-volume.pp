@@ -1,5 +1,5 @@
 define attach-volume {
-$path = hiera('path_to_cinder_volume')
+$path = hiera('cinder_drivers')
 notify { $path: }
 exec { 'pvcreate':
   command => "/sbin/pvcreate $path",
