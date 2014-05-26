@@ -1,5 +1,5 @@
 class keystone::service-endpoint::service-endpoint {
-#require keystone::service-endpoint::service
+require keystone::service-endpoint::service
 $admin_token = hiera('admin_token')
   $hostname = hiera('hostname')
   $url = "http://${hostname}:35357/v2.0"
